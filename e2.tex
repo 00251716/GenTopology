@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{pifont}
+\setlength{\tabcolsep}{3pt}
+\decimalpoint
+\newcommand{\xmark}{\ding{55}}
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
+
+\newmdenv[innerlinewidth=0.5pt, roundcorner=4pt,linecolor=mycolor,innerleftmargin=6pt,
+innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
+
+
+\setlength\parindent{0pt}
+
+\newtheorem{definition}{Definición}
+\newtheorem{proposition}{Proposición}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+\date{Lunes 23 de septiembre de 2019}
+\title{ \textbf{Topología} \\
+Semana 2: Conjuntos cerrados, puntos límite y espacios de Hausdorff}
+%\author{Docente: Gabriel Chicas Reyes, MSc.\\ 
+	%			Alumno: Kevin López Aquino }
+\maketitle	
+
+\begin{mybox}
+\textbf{11. } Muestre que el producto de dos espacios de Hausdorff es Hausdorff. 	
+\end{mybox}	
+\begin{proof}
+	Sean $X$ y $Y$ dos espacios de Hausdorff. Tomemos dos puntos $(x_{1}, y_{1}), (x_{2}, y_{2})$ distintos de $X \times Y$. Entonces, $x_{1} \neq x_{2}$ o $y_{1} \neq y_{2}$. Supongamos, sin pérdida de generalidad, que $x_{1} \neq x_{2}$. Puesto que $X$ es Hausdorff, podemos elegir entornos disjuntos $U_{1}, U_{2} \subseteq X$ de $x_{1}$ y $x_{2}$, respectivamente.  Entonces, $U_{1} \times Y$ y $(x_{2}, y_{2})$ son entornos de $(x_{1}, y_{1})$ y $U_{2} \times Y$, respectivamente, en la topología producto sobre $X \times Y$. Además, 
+	$$ \left( U_{1} \times Y \right) \cap \left( U_{2} \times Y \right) =   \left( U_{1} \cap U_{2} \right) \times Y = \varnothing, $$
+	con lo que queda demostrada la proposición. 
+\end{proof}
+
+\begin{mybox}
+	\textbf{13. } Muestre que $X$ es Hausdorff si y solo si la \textbf{diagonal}
+	$$ \Delta = \{ (x, x) \mid x \in X \} $$
+	es cerrada en $ X \times X$.
+\end{mybox}	
+\begin{proof}
+	$(\Leftarrow)$ Supongamos que $\Delta$ es cerrada en $X \times X$. Entonces, 
+	$$ \left( X \times X \right)  \backslash \Delta = \{ (x, y) \in X \times X \mid x \neq y \}$$ 
+es abierto en $X \times X$. Esto implica que para cualesquiera $x, y \in X$ tales que $x \neq y$, existen abiertos $U, V \subseteq X$ tales que
+$$ (x, y) \in U \times V \subseteq  \left( X \times X \right)  \backslash \Delta. $$
+De lo anterior se observa que no puede existir un elemento en $U \cap V$. Así, para $x$ y $y$ de $X$ distintos, hemos construido entornos disjuntos. Se sigue que $X$ es Hausdorff.\\
+$(\Rightarrow)$ Ahora supongamos que $X$ es Hausdorff. Mostramos que $\left( X \times X \right)  \backslash \Delta$ es abierto. Si $(x, y) \in \left( X \times X \right)  \backslash \Delta$, deducimos que $x \neq y$ y que existen entornos disjuntos $U, V$ de $x$ y $y$, respectivamente. Notamos que $ (U \times V) \cap \Delta = \varnothing$, de forma que 
+$$(x, y) \in U \times V \subseteq \left( X \times X \right)  \backslash \Delta.$$ 
+Así, para cada punto en $\left( X \times X \right)  \backslash \Delta$ podemos encontrar un elemento básico dentro de este conjunto que lo contiene, de lo que se sique que $\left( X \times X \right)  \backslash \Delta$ es abierto. 
+\end{proof}
+
+\end{document}
