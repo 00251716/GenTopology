@@ -34,6 +34,70 @@ Semana 2: Conjuntos cerrados, puntos límite y espacios de Hausdorff}
 %\author{Docente: Gabriel Chicas Reyes, MSc.\\ 
 	%			Alumno: Kevin López Aquino }
 \maketitle	
+\begin{mybox}
+	\textbf{1.} Sea $X$ un conjunto y $\mathcal{C} \subseteq \mathcal{P}(X)$. Supongamos que $\varnothing, X \in \mathcal{C}$ y que las intersecciones arbitrarias y uniones finitas de elementos de $\mathcal{C}$ están en $\mathcal{C}$. Entonces, 
+	$$ \mathcal{T} = \{ X \backslash C \mid C \in \mathcal{C} \} $$ 
+	es una topología sobre $X$.
+\end{mybox}	 
+\begin{proof}
+Primero notamos que $\varnothing$ y $X$ están en $\mathcal{T}$. Consideremos una colección $\{ X \backslash C_{i} \}_{i \in J}$ no vacía de elementos de $\mathcal{C}$. Entonces, 
+$$ \bigcup _{i \in J} \left( X \backslash C_{i} \right)  = X \backslash \bigcap_{i \in J} C_{i} \in \mathcal{T}.$$
+Además, si tomamos dos elementos $X\backslash C_{1}, X\backslash C_{2}$ de $\mathcal{T}$,
+$$ (X \backslash C_{1}) \cap (X \backslash C_{2}) = X \backslash \left( C_{1} \cup C_{2} \right) \in \mathcal{T}. $$
+\end{proof}
+
+La demostración anterior nos dice que podríamos tomar las propiedades de los conjuntos cerrados como punto de partida y luego demostrar las propiedades de los conjuntos abiertos enunciadas en la definición usual de una topología. \\
+
+\begin{mybox}
+	\textbf{2. } Si $A$ es cerrado en $Y$ y $Y$ es cerrado en $X$, $A$ es cerrado en $X$.
+\end{mybox}	
+\begin{proof}
+Podemos escribir $A = C \cap Y$, donde $C$ es cerrado en $X$. Al ser la intersección de dos conjuntos cerrados en $X$, $A$ es cerrado en $X$. 
+\end{proof}
+\begin{mybox}
+	\textbf{3. } Sean $X$ y $Y$ espacios topológicos. Si $A$ es cerrado en $X$ y $B$ es cerrado en $Y$, $A \times B$ es cerrado en $X \times Y$. 
+\end{mybox}	
+\begin{proof}
+	Notamos que $X \backslash A$ es abierto en $X$ y $Y \backslash B$ es abierto en $Y$. Notamos que 
+	$$ \left( X \times Y \right) \backslash \left( A \times B \right) =   \left( \left( X \backslash A \right) \times Y \right) \cup \left( X \times \left( Y \backslash B \right) \right). $$
+	El lado derecho es la unión de conjuntos abiertos en $X \times Y$, lo que implica que $A \times B$ es cerrado.  
+\end{proof}
+
+\begin{mybox}
+\textbf{4. } 	Si $U$ es abierto en $X$ y $A$ es cerrado en $X$, entonces $U \backslash A$ es abierto y $A \backslash U$ es cerrado.
+\end{mybox}
+\begin{proof}
+	Notamos que 
+	$$ X \backslash ( U \backslash  A) = (X \backslash U) \cup A $$
+	es la unión de dos conjuntos cerrados y es, por tanto, cerrado. Concluimos que $U\backslash A$ es abierto.  De forma similar,
+	$$X \backslash ( A \backslash  U) = (X \backslash A) \cup U $$
+	es la unión de dos conjuntos abiertos, de lo que se sigue que su complemento, $A \backslash U$, es cerrado. 
+\end{proof}	
+
+\begin{mybox}
+	\textbf{5. } Sea $X$ un conjunto ordenado, dotado de la topología del orden. Entonces, 
+	$$ \text{cl}(a, b) \subseteq [a, b ] $$. 
+\end{mybox}	
+\begin{proof}
+	Notamos que $[a, b]$ es un conjunto cerrado y que $(a, b) \subseteq [a, b]$. Se sigue que $\text{cl}(a, b) \subseteq [a, b]$.
+\end{proof}
+
+Además, si $a$ no tiene sucesor inmediato, podemos afirmar que $a \in \text{cl}(a, b)$. De manera similar, si $b$ no tiene predecesor inmediato, podemos afirmar que $b \in \text{cl}(a, b)$, de forma que $\text{cl}(a, b) = [a, b]$. Si no nos limitamos a puntos $a$ y $b$ específicos, tenemos el siguiente resultado. \\
+
+\textbf{Proposición. } Sea $(X, \leq )$ un conjunto ordenado. Si la relación de orden sobre $X$ es densa, para cualesquiera $a$ y $b$ tales que $a < b$ tenemos que $\text{cl}(a, b) = [a, b]$.
+\begin{proof}
+	Antes mostramos que $\text{cl}(a, b) \subseteq [a, b]$. Notamos que si el orden es denso, todo entorno de $a$ debe intersecar a $(a, b)$. De forma similar, todo entorno de $b$ debe intersecar a $(a, b)$. Se sigue que $\text{cl}(a, b) = [a, b]$.
+\end{proof}
+
+\begin{mybox}
+	\textbf{10. } Todo espacio dotado de la topología del orden es de Hausdorff. 
+\end{mybox}	
+\begin{proof}
+	Consideremos $x, y \in X$ y supongamos, sin pérdida de generalidad, que $x < y$. Analizamos dos casos. \\
+	\textit{Caso I. } Existe un $z$ que verifica $x < z < y$. Entonces $x$ está en $(- \infty, z)$ y $y$ está en  $(z, \infty)$. Ambos rayos son conjuntos abiertos y disjuntos. \\
+	\textit{Caso II. } Si $y$ es sucesor inmediato de $x$, tenemos que $x \in ( - \infty, y) = (- \infty,x]$ y $y \in (x, \infty) = [y, \infty)$. De igual forma, ambos conjuntos son abiertos y disjuntos. \\
+	Así, en cada caso podemos encontrar entornos disjuntos de $x$ y $y$, de lo que se sigue que $X$ es un espacio de Hausdorff. 
+\end{proof}
 
 \begin{mybox}
 \textbf{11. } Muestre que el producto de dos espacios de Hausdorff es Hausdorff. 	
@@ -87,7 +151,11 @@ La parte $(\Leftarrow)$ sigue el mismo argumento de la demostración del \textbf
 	$$ \partial A = \text{cl}(A) \cap \text{cl}(X \backslash A). $$
 	\textbf{(a)} Pruebe que $\text{int}(A)$ y $\partial A$ son disjuntos y que $\text{cl}(A) = \text{int}(A) \cup \partial A$. \\
 	
-	\textbf{(b)} Muestre que $\partial A = \varnothing $ si y solo si $A$ es abierto y cerrado a la vez. 
+	\textbf{(b)} Muestre que $\partial A = \varnothing $ si y solo si $A$ es abierto y cerrado a la vez. \\
+	
+	\textbf{(c)} Muestre que $U$ es abierto si y solo si $\partial U = \text{cl}(U) \backslash U$.\\
+	
+	\textbf{(d)} Si $U$ es abierto, ¿es cierto que $U = \text{int}(\text{cl}(U))$?
 \end{mybox}	
 $\bullet$ Para ver que el interior de $A$ y su frontera son disjuntos, suponemos que existe un punto $x$ en ambos conjuntos. Al estar en el interior de $A$, se sigue que existe un $U$ entorno de $x$ contenido en $A$. Sin embargo, $x \in \text{cl}(X \backslash A)$, lo que implica que $U$ debe intersecar a $X \backslash A$. Teniendo en cuenta que $U \subseteq A$, esto resulta imposible. \\
 
@@ -104,5 +172,29 @@ $(\Rightarrow)$ Ahora supongamos que $\partial A = \varnothing.$ Por la parte $\
 	\caption{Si un punto está en la frontera de $A$, cada entorno de ese punto contiene puntos dentro de $A$ y fuera de $A$. }
 \end{figure}
 
+$\bullet \hspace{0.2cm}  (\Rightarrow)$ Supongamos que $U$ es abierto. Entonces, $U = \text{int}(U)$. Esto, junto con la parte $\textbf{(a)}$ implica que $\text{cl}(U) = \text{int}(U) \cup \partial U = U \cup \partial U$.  Además, sabemos que $\text{int}(U) = U$ y $\partial U$ son disjuntos, de forma que al remover los elementos de $U$ de $\text{cl}(U)$ solo quedarán los puntos en la frontera: $\text{cl}(U) \backslash U = \partial U$. \\
+$(\Leftarrow)$ Ahora supongamos que $\text{cl}(U) \backslash U = \partial U$. Procedemos por contradicción, suponiendo que $U$ es no abierto. Esto implica que existe un punto $x$ en $U$ tal que ninguno de sus entornos está contenido en $U$. De forma equivalente, podemos decir que cualquier entorno de $x$ interseca a $X \backslash U$. Así, $x \in \text{cl}(X \backslash U)$. Además, $x \in \text{cl}(U)$, lo que implica que $x \in \partial U$. Por la suposición inicial, podemos deducir que $x \notin U$, lo cual es absurdo. $\hspace*{\fill} \blacksquare$ \\
+
+\newpage
+
+$\bullet$ No. El conjunto $U = (1, 2) \cup (2, 3)$ es abierto en la topología usual sobre $\mathbb{R}$, pero $\text{int}(\text{cl}(U)) = (1, 3) \neq U.$\\
+
+\textbf{Definición. } Sea $X$ un espacio topológico y $U \subseteq X$. Decimos que $U$ es \textbf{abierto regular} si $\text{int}(\text{cl}(U)) = U$. \\
+
+El ejemplo anterior muestra que no todos los conjuntos abiertos son abiertos regulares. De la definición notamos que al ser el interior de otro conjunto, todos los regulares abiertos son abiertos. ¿Qué sucede con el ejemplo $U$ presentado anteriormente?
+
+\begin{figure}[h]
+	\centering \includegraphics[scale=0.13]{e2fig3.png}
+	\caption{El conjunto $U$ es abierto en la topología usual sobre $\mathbb{R}$, pero no abierto regular. }
+\end{figure}
+
+Notamos que la frontera de $U$ es $\{ 1, 2, 3 \}$, de modo que cuando se toma la clausura, se agregan estos tres puntos. Al tomar el interior, nos deshacemos de los puntos $1$ y $3$: ningún entorno de estos puntos está contenido en $\text{cl}(U)$. Sin embargo, notamos que $2$ \textit{está rodeado} de elementos de $U$ sin pertenecer a $U$: existe un entorno de $2$ que, aparte del mismo punto $2$, solo contiene elementos de $U$. De forma equivalente, existe un entorno $V$ de $2$ tal que $( V \backslash \{ 2 \} )\cap (X \backslash U) = \varnothing$. \\
+
+\textbf{Proposición. } Sea $X$ un espacio topológico y $U \subseteq X$ abierto. Si existe un $x \in \partial U$ y un entorno $V$ de $x$ tal que $(V \backslash \{x\}) \cap (X \backslash U) = \varnothing$, entonces $U$ no es abierto regular. 
+\begin{proof}
+	Mostramos que $x \notin U$ y $x \in \text{int}(\text{cl}(U))$. Al ser un conjunto abierto, se sigue que $U$ y $\partial U$ son disjuntos, de forma que $x \notin U$. Puesto que $\text{cl}(U) = \text{int}(U) \cup \partial U$, se sigue que $x \in \text{cl}(U)$. Ahora mostraremos que $x$ está en el interior de este último conjunto. Notemos que la hipótesis nos dice que hay un entorno $V$ de $x$ tal que $(V \backslash \{x\}) \cap (X \backslash U) = \varnothing$. De esto, podemos deducir que
+	$$ V \subseteq U \cup \{ x \} \subseteq \text{cl}(U). $$
+	De forma que existe un entorno de $x$ contenido en $\text{cl}(U)$. Por tanto, $x$ está en  $\text{int}(\text{cl}(U))$.
+\end{proof}
 
 \end{document}
