@@ -156,7 +156,23 @@ Así, para cada punto en $\left( X \times X \right)  \backslash \Delta$ podemos 
 	$(\Rightarrow)$ Ahora supongamos que los subconjuntos finitos de $X$ son cerrados y tomemos dos puntos distintos $x$ y $y$ de $X$. Entonces, el conjunto $X \backslash \{y\}$ es un entorno de $x$ que no contiene a $y$. De manera similar, $X \backslash \{ x \}$ es un entorno de $y$ que no contiene a $x$.
 \end{proof}
 La parte $(\Leftarrow)$ sigue el mismo argumento de la demostración del \textbf{teorema 17.8} de \textbf{[1]}. Este hecho ilustra que no necesitamos algo tan fuerte como la propiedad de Hausdorff para que los conjuntos finitos sean cerrados: basta con una propiedad más débil como el axioma $T_{1}$. 
-\newpage
+\vspace{0.5cm}
+\begin{mybox}
+	\textbf{17. } Considere el espacio $\mathbb{R}_{\ell}$ y la topología sobre $\mathbb{R}$ generada por la base
+	$$ \mathcal{C} = \{ [p, q) \mid p < q \hspace{0.2cm} \text{y} \hspace{0.2cm} p, q \in \mathbb{Q} \} .$$
+	Determine las clausuras de los intervalos $A = (0, \sqrt{2})$ y $B = (\sqrt{2}, 3)$ en estas dos topologías. 
+\end{mybox}	
+$\bullet$ Consideremos la clausura de $(0, \sqrt{2})$ en $\mathbb{R}_{\ell}$. Notamos que los intervalos $(a, b)$ son abiertos en esta topología, pero no son cerrados. Esto se puede observar al tomar el complemento
+$$ \mathbb{R} \backslash (a, b) = (- \infty, a] \cup [b, \infty). $$
+Entonces, no existe un intervalo semiabierto que contenga a $a$ y a la vez esté contenido en este conjunto. Por otro lado, los conjuntos $[a, b)$ son tanto cerrados como abiertos. Así, decimos que 
+$$ \text{cl}(0, \sqrt{2}) = [0, \sqrt{2}). $$
+Notamos que $0$ está en la clausura de $(0, \sqrt{2})$, porque todo intervalo semiabierto que contenga a $0$ interseca este conjunto. Por otro lado, si $x$ es un número real tal que $x < 0$, el elemento básico $[x, 0)$ no interseca a $(0, \sqrt{2})$. De igual forma, si $x \geq \sqrt{2}$, $[\sqrt{2}, \infty)$ es un entorno de $x$ que no interseca a $(0, \sqrt{2})$. \\
+
+$\bullet$ Ahora consideremos la clausura de $(0, \sqrt{2})$ en $\mathbb{R}$ equipado con $\mathcal{T_{C}}$. Notamos que $0$ está en la clausura, dado que todo básico $[p, q)$ que contenga a $0$ interseca a $(0, \sqrt{2})$. De forma más interesante, $\sqrt{2}$ está incluido en la clausura de $(0, \sqrt{2})$. Esto se sigue del hecho que en todo básico $[p, q)$ que contenga a $\sqrt{2}$, el extremo izquierdo $p$ siempre es menor que $\sqrt{2}$. Por otro lado, si $x < 0$, el elemento básico $[p, 0)$, donde $p \leq x$ es racional, no interseca a $(0, \sqrt{2})$. Si $x > \sqrt{2}$, $(\sqrt{2}, \infty)$ es un entorno de $x$ que no interseca a $(0, \sqrt{2})$. \\
+
+$\bullet$ En ambos espacios topológicos, se tiene que $\text{cl}(\sqrt{2}, 3) = [\sqrt{2}, 3)$. Notemos que en cualquiera de las topologías, si un elemento básico contiene a $\sqrt{2}$, siempre intersecará $(\sqrt{2}, 3)$. Por otro lado, si $x < \sqrt{2}$, siempre podemos encontrar un entorno de $x$ en ambas topologías que no interseque este conjunto. Lo mismo si $x \geq 3$.  \hspace*{\fill} $\blacksquare$
+\vspace{0.5cm}
+
 \begin{figure}[h]
 	\centering \includegraphics[scale=0.15]{e2fig.png}
 	\caption{En un espacio $X$ que cumple el axioma $T_{1}$ siempre podemos hacer lo mostrado en la figura, pero no podemos garantizar que los entornos sean disjuntos, a diferencia de un espacio de Hausdorff. }
