@@ -90,6 +90,15 @@ Además, si $a$ no tiene sucesor inmediato, podemos afirmar que $a \in \text{cl}
 \end{proof}
 
 \begin{mybox}
+	\textbf{9. }Sean $A \subseteq X, B \subseteq Y$. En el espacio $X \times Y$,
+	$$ \text{cl}(A \times B) = \text{cl}(A) \times \text{cl}(B) .$$
+\end{mybox}	
+\begin{proof}
+	Notamos que $\text{cl}(A) \times \text{cl}(B)$ es cerrado en $A \times B$. Además, $A \times B \subseteq \text{cl}(A) \times \text{cl}(B)$. Esto implica que $\text{cl}(A \times B) \subseteq \text{cl}(A) \times \text{cl}(B)$.\\
+	Por otro lado, consideremos un punto $(x, y) \in \text{cl}(A) \times \text{cl}(B)$. Entonces, cualquier básico $U \times V$ que contenga a $(x, y)$ interseca a $A \times B$, lo que implica que $(x, y) \in \text{cl}(A \times B)$. Así, $\text{cl}(A) \times \text{cl}(B) \subseteq \text{cl}(A \times B). $ 
+\end{proof}
+
+\begin{mybox}
 	\textbf{10. } Todo espacio dotado de la topología del orden es de Hausdorff. 
 \end{mybox}	
 \begin{proof}
@@ -129,6 +138,13 @@ De lo anterior se observa que no puede existir un elemento en $U \cap V$. Así, 
 $(\Rightarrow)$ Ahora supongamos que $X$ es Hausdorff. Mostramos que $\left( X \times X \right)  \backslash \Delta$ es abierto. Si $(x, y) \in \left( X \times X \right)  \backslash \Delta$, deducimos que $x \neq y$ y que existen entornos disjuntos $U, V$ de $x$ y $y$, respectivamente. Notamos que $ (U \times V) \cap \Delta = \varnothing$, de forma que 
 $$(x, y) \in U \times V \subseteq \left( X \times X \right)  \backslash \Delta.$$ 
 Así, para cada punto en $\left( X \times X \right)  \backslash \Delta$ podemos encontrar un elemento básico dentro de este conjunto que lo contiene, de lo que se sique que $\left( X \times X \right)  \backslash \Delta$ es abierto. 
+\end{proof}
+
+\begin{mybox}
+	\textbf{14. } En la topología cofinita sobre $\mathbb{R}$, la sucesión $x_{n} = 1/n$ converge a todo número real. 
+\end{mybox}	
+\begin{proof}
+	Consideremos un número real $r$ y un entorno $U$ de este. Entonces, el conjunto $U$ contiene todos los números reales salvo una cantidad finita de ellos. Se sigue que debe existir un número natural $N$ a partir del cual todos los números de la forma $1/n$, con $n \geq N$, estén en $U$.  
 \end{proof}
 
 \begin{mybox}
