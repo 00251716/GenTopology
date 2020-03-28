@@ -28,11 +28,9 @@ innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
 \renewcommand{\headrulewidth}{0.4pt}
 
 \begin{document}
-\date{13 - 20 marzo de 2020}
+\date{13 - 27 marzo de 2020}
 \title{ \textbf{Topología} \\
-Semana 2: Conjuntos cerrados, puntos límite y espacios de Hausdorff}
-%\author{Docente: Gabriel Chicas Reyes, MSc.\\ 
-	%			Alumno: Kevin López Aquino }
+Semanas 2 y 3: Conjuntos cerrados, puntos límite y espacios de Hausdorff}
 \maketitle	
 \begin{mybox}
 	\textbf{1.} Sea $X$ un conjunto y $\mathcal{C} \subseteq \mathcal{P}(X)$. Supongamos que $\varnothing, X \in \mathcal{C}$ y que las intersecciones arbitrarias y uniones finitas de elementos de $\mathcal{C}$ están en $\mathcal{C}$. Entonces, 
@@ -88,7 +86,6 @@ Además, si $a$ no tiene sucesor inmediato, podemos afirmar que $a \in \text{cl}
 \begin{proof}
 	Antes mostramos que $\text{cl}(a, b) \subseteq [a, b]$. Notamos que si el orden es denso, todo entorno de $a$ debe intersecar a $(a, b)$. De forma similar, todo entorno de $b$ debe intersecar a $(a, b)$. Se sigue que $\text{cl}(a, b) = [a, b]$.
 \end{proof}
-
 \begin{mybox}
 	\textbf{6.} Sean $A, B$ y $A_{\alpha}$ subconjuntos de un espacio topológico $X$. Entonces, se cumplen las siguientes proposiciones: \\
 	
@@ -99,7 +96,15 @@ Además, si $a$ no tiene sucesor inmediato, podemos afirmar que $a \in \text{cl}
     \textbf{(c)} $\bigcup_{\alpha \in J} \text{cl}(A_{\alpha}) \subseteq  \text{cl}\left( \bigcup_{\alpha \in J} A_{\alpha} \right)$.  
 	
 \end{mybox}	
-$\textbf{(a)}$ Notamos que $A \subseteq \text{cl}(B)$.
+$\textbf{(a)}$ Notamos que $A \subseteq \text{cl}(B)$ y $\text{cl}(B)$ es cerrado. Se sigue inmediatamente que $\text{cl}(A) \subseteq \text{cl}(B)$. \\
+
+$\textbf{(b)}$ Primero notamos que $A$ y $B$ están contenidos en $\text{cl}(A \cup B)$. Este último es un conjunto cerrado, de lo que podemos deducir tanto que $\text{cl}(A) \subseteq \text{cl}(A \cup  B)$ como $\text{cl}(B) \subseteq \text{cl}(A \cup  B)$. Se sigue que $\text{cl}(A) \cup \text{cl}(B) \subseteq \text{cl}(A \cup  B)$. \\
+Para el otro lado, notamos que $A \cup B \subseteq \text{cl}(A) \cup \text{cl}(B)$. Este último es un conjunto cerrado, de lo que podemos deducir que $\text{cl}(A \cup B) \subseteq \text{cl}(A) \cup \text{cl}(B)$. \\
+
+$\textbf{(c)}$   Ahora consideremos una colección $\{ A_{\alpha} \}_{\alpha \in J}$ de subconjuntos de $X$.  Para cada uno de estos conjuntos, se cumple que
+$$ A_{\alpha} \subseteq \bigcup_{\alpha \in J} A_{\alpha} \subseteq \text{cl} \left( \bigcup_{\alpha \in J} A_{\alpha} \right). $$
+Se sigue que $\text{cl}(A_{\alpha}) \subseteq \left( \bigcup_{\alpha \in J} A_{\alpha} \right)$ para cada $\alpha \in J$. Así,
+$$ \bigcup_{\alpha \in J} \text{cl}(A_{\alpha})  \subseteq \text{cl} \left( \bigcup_{\alpha \in J} A_{\alpha} \right). \hspace{0.5cm} \blacksquare $$
 
 \begin{mybox}
 	\textbf{9. }Sean $A \subseteq X, B \subseteq Y$. En el espacio $X \times Y$,
@@ -109,7 +114,7 @@ $\textbf{(a)}$ Notamos que $A \subseteq \text{cl}(B)$.
 	Notamos que $\text{cl}(A) \times \text{cl}(B)$ es cerrado en $A \times B$. Además, $A \times B \subseteq \text{cl}(A) \times \text{cl}(B)$. Esto implica que $\text{cl}(A \times B) \subseteq \text{cl}(A) \times \text{cl}(B)$.\\
 	Por otro lado, consideremos un punto $(x, y) \in \text{cl}(A) \times \text{cl}(B)$. Entonces, cualquier básico $U \times V$ que contenga a $(x, y)$ interseca a $A \times B$, lo que implica que $(x, y) \in \text{cl}(A \times B)$. Así, $\text{cl}(A) \times \text{cl}(B) \subseteq \text{cl}(A \times B). $ 
 \end{proof}
-
+\newpage
 \begin{mybox}
 	\textbf{10. } Todo espacio dotado de la topología del orden es de Hausdorff. 
 \end{mybox}	
@@ -141,6 +146,7 @@ $\textbf{(a)}$ Notamos que $A \subseteq \text{cl}(B)$.
 	$$ \Delta = \{ (x, x) \mid x \in X \} $$
 	es cerrada en $ X \times X$.
 \end{mybox}	
+
 \begin{proof}
 	$(\Leftarrow)$ Supongamos que $\Delta$ es cerrada en $X \times X$. Entonces, 
 	$$ \left( X \times X \right)  \backslash \Delta = \{ (x, y) \in X \times X \mid x \neq y \}$$ 
@@ -170,6 +176,61 @@ Así, para cada punto en $\left( X \times X \right)  \backslash \Delta$ podemos 
 La parte $(\Leftarrow)$ sigue el mismo argumento de la demostración del \textbf{teorema 17.8} de \textbf{[1]}. Este hecho ilustra que no necesitamos algo tan fuerte como la propiedad de Hausdorff para que los conjuntos finitos sean cerrados: basta con una propiedad más débil como el axioma $T_{1}$. 
 \vspace{0.5cm}
 \begin{mybox}
+	\textbf{16. }  Considere las cinco topologías sobre $\mathbb{R}$ dadas en el ejercio 7 de §13. \\
+	
+	\textbf{(a) }Determine las clausuras de
+	$$ K = \{ 1/n \mid n \in \mathbb{Z}^{+} \} $$
+	en cada una de estas cinco topologías. \\
+	
+	\textbf{(b)} ¿Cuáles de estas topologías satisfacen el axioma de Hausdorff? ¿Cuáles el axioma $T_{1}$?
+\end{mybox}
+$\textbf{(a)}$ $\bullet$ En la topología estándar sobre $\mathbb{R}$, tenemos que
+$$ \text{cl}(K) = \{0 \} \cup K. $$
+Notamos que el conjunto de la derecha es un conjunto cerrado, dado que su complemento,
+$$ \mathbb{R} \backslash ( \{0\} \cup K) = (- \infty, 0) \cup \left( \bigcup_{n \in \mathbb{Z}^+} \left( \frac{1}{n+1},\frac{1}{n} \right) \right)  \cup (1, \infty)$$
+es un conjunto abierto. Además, $0$ es un punto límite de $K$. \\
+
+$\bullet$ En el espacio $\mathbb{R}_{K}$, tenemos que 
+$$ \text{cl}(K) =K. $$
+Puesto que la topología de $\mathbb{R}_{K}$ es más fina que la topología estándar, se sigue que
+$$K \subseteq \text{cl}(K) \subseteq \{ 0 \} \cup K. $$
+Así, solo debemos considerarel punto $0$. Notamos que $(-1, 1) \backslash K$ es un entorno de $0$ que no interseca a $K$, de lo que deducimos que $0 \notin \text{cl}(K)$. \\
+
+Otra forma de ver esto es notar que en la topología de $\mathbb{R}_{K}$, el conjunto $K$ es cerrado. El punto problemático, $0$, está en el interior de su complemento, gracias a los conjuntos de la forma $(a, b) \backslash K$.  \\
+
+$\bullet$ Sabemos que la toplogía cofinita sobre $\mathbb{R}$  es más gruesa que la topología estándar, de lo que deducimos que
+$$ \{0\} \cup K \subseteq \text{cl}(K). $$ 
+De hecho, $\text{cl}(K) = \mathbb{R}$. Si tomamos un número real $x$, cualquier entorno $U$ de $x$ contiene todos los números reales salvo una cantidad finita de estos. Por tanto, cualquier entorno $U$ de $x$ interseca a $K$. Se sigue que $\text{cl}(K) = \mathbb{R}$. \\
+
+$\bullet$ Ahora consideremos la topología del límite superior. Es más fina que la estándar, de lo que deducimos que 
+$$ K \subseteq  \text{cl}(K) \subseteq \{0\} \cup K $$.
+Notamos que $(-1, 0]$ es un entorno de $0$ que no interseca a $K$. Se sigue que $0$ no está en la clausura de $K$ y $\text{cl}(K) = K$. De nuevo, $K$ es cerrado en esta topología. \\
+
+$\bullet$ Ahora consideremos la topología generada por elementos básicos de la forma $(-\infty, a)$. Entonces, 
+$$ \text{cl}(K) = [0, \infty) .$$
+Sea $x \geq 0$. Si $x \in (\infty, a)$, se sigue que $0 \geq x < a$. Así, todo elemento básico que contiene que $x$ interseca a $K$, de forma que $x \in \text{cl}(K)$. \\
+Por otro lado, si $x < 0$, el entorno $(-\infty, 0)$ contiene a $x$ y no interseca a $K$, de forma que $x \notin \text{cl}(K)$. \\
+
+\textbf{(b)} $\bullet$ $\mathbb{R}$ con la topología estándar es un espacio de Hausdorff, dado que la topología estándar es la topología del orden sobre $\mathbb{R}$. \\
+
+$\bullet$ El espacio $\mathbb{R}_{K}$ tiene una topología más fina que la topología estándar. Se sigue que este esacio es de Hausdorff. \\
+
+$\bullet$ $\mathbb{R}$ con la topología cofinita es $T_{1}$, pero no es Hausdorff. En general, se tiene la siguiente proposición.\\
+
+\textbf{Proposición. } Sea $X$ un conjunto dotado de la topología cofinita. Si $X$ es Hausdorff, se sigue que es finito.  \\
+\begin{proof}
+	Si tomamos dos puntos distintos $x$ y $y$, podemos encontrar un entorno $U$ de $x$ y un entorno $V$ de $y$ tales que $U \cap V = \varnothing$. Tenemos que $X \backslash U$ y $X \backslash V$ son finitos.Además, 
+	$$ X = X \backslash \varnothing = X \backslash (U \cap V) = (X \backslash U) \cup (X \backslash V). $$
+	Al ser la unión de dos conjuntos finitos, $X$ también es finito. 
+\end{proof}
+
+$\bullet $ $\mathbb{R}$ con la topología del límite superior es Hausdorff, ya que esta topología es más fina que la topología estándar. \\
+
+$\bullet$ Un caso extraño. $\mathbb{R}$ con la topología generada al tomar los elementos de la forma $(-\infty, a)$ no es ni siquiera $T_{1}$. El conjunto unipuntual $\{1 \}$ no es cerrado. Esto se nota al tomar su complemento 
+$$ \mathbb{R} \backslash \{ 1 \} = (-\infty, 1) \cup (1, \infty) $$
+y notar que este conjunto no es abierto. 
+
+\begin{mybox}
 	\textbf{17. } Considere el espacio $\mathbb{R}_{\ell}$ y la topología sobre $\mathbb{R}$ generada por la base
 	$$ \mathcal{C} = \{ [p, q) \mid p < q \hspace{0.2cm} \text{y} \hspace{0.2cm} p, q \in \mathbb{Q} \} .$$
 	Determine las clausuras de los intervalos $A = (0, \sqrt{2})$ y $B = (\sqrt{2}, 3)$ en estas dos topologías. 
@@ -189,7 +250,7 @@ $\bullet$ En ambos espacios topológicos, se tiene que $\text{cl}(\sqrt{2}, 3) =
 	\centering \includegraphics[scale=0.15]{e2fig.png}
 	\caption{En un espacio $X$ que cumple el axioma $T_{1}$ siempre podemos hacer lo mostrado en la figura, pero no podemos garantizar que los entornos sean disjuntos, a diferencia de un espacio de Hausdorff. }
 \end{figure}
-
+\newpage
 \begin{mybox}
 	\textbf{19. } Si $A \subseteq X$, definimos la \textbf{frontera} de $A$ mediante la ecuación
 	$$ \partial A = \text{cl}(A) \cap \text{cl}(X \backslash A). $$
