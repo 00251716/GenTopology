@@ -90,6 +90,18 @@ Además, si $a$ no tiene sucesor inmediato, podemos afirmar que $a \in \text{cl}
 \end{proof}
 
 \begin{mybox}
+	\textbf{6.} Sean $A, B$ y $A_{\alpha}$ subconjuntos de un espacio topológico $X$. Entonces, se cumplen las siguientes proposiciones: \\
+	
+	\textbf{(a)} Si $A\subseteq B$, $\text{cl}(A) \subseteq \text{cl}(B)$.  \\
+	
+    \textbf{(b)} $\text{cl}(A) \cup \text{cl}(B) = \text{cl}(A \cup B) .$ \\
+    
+    \textbf{(c)} $\bigcup_{\alpha \in J} \text{cl}(A_{\alpha}) \subseteq  \text{cl}\left( \bigcup_{\alpha \in J} A_{\alpha} \right)$.  
+	
+\end{mybox}	
+$\textbf{(a)}$ Notamos que $A \subseteq \text{cl}(B)$.
+
+\begin{mybox}
 	\textbf{9. }Sean $A \subseteq X, B \subseteq Y$. En el espacio $X \times Y$,
 	$$ \text{cl}(A \times B) = \text{cl}(A) \times \text{cl}(B) .$$
 \end{mybox}	
@@ -168,7 +180,7 @@ Entonces, no existe un intervalo semiabierto que contenga a $a$ y a la vez esté
 $$ \text{cl}(0, \sqrt{2}) = [0, \sqrt{2}). $$
 Notamos que $0$ está en la clausura de $(0, \sqrt{2})$, porque todo intervalo semiabierto que contenga a $0$ interseca este conjunto. Por otro lado, si $x$ es un número real tal que $x < 0$, el elemento básico $[x, 0)$ no interseca a $(0, \sqrt{2})$. De igual forma, si $x \geq \sqrt{2}$, $[\sqrt{2}, \infty)$ es un entorno de $x$ que no interseca a $(0, \sqrt{2})$. \\
 
-$\bullet$ Ahora consideremos la clausura de $(0, \sqrt{2})$ en $\mathbb{R}$ equipado con $\mathcal{T_{C}}$. Notamos que $0$ está en la clausura, dado que todo básico $[p, q)$ que contenga a $0$ interseca a $(0, \sqrt{2})$. De forma más interesante, $\sqrt{2}$ está incluido en la clausura de $(0, \sqrt{2})$. Esto se sigue del hecho que en todo básico $[p, q)$ que contenga a $\sqrt{2}$, el extremo izquierdo $p$ siempre es menor que $\sqrt{2}$. Por otro lado, si $x < 0$, el elemento básico $[p, 0)$, donde $p \leq x$ es racional, no interseca a $(0, \sqrt{2})$. Si $x > \sqrt{2}$, $(\sqrt{2}, \infty)$ es un entorno de $x$ que no interseca a $(0, \sqrt{2})$. \\
+$\bullet$ Ahora consideremos la clausura de $(0, \sqrt{2})$ en $\mathbb{R}$ equipado con $\mathcal{T_{C}}$. Notamos que $0$ está en la clausura, dado que todo básico $[p, q)$ que contenga a $0$ interseca a $(0, \sqrt{2})$. De forma más interesante, $\sqrt{2}$ está incluido en la clausura de $(0, \sqrt{2})$. Esto se sigue del hecho que en todo básico $[p, q)$ que contenga a $\sqrt{2}$, el extremo izquierdo $p$ siempre es menor que $\sqrt{2}$. Por otro lado, si $x < 0$, el elemento básico $[p, 0)$, donde $p \leq x$ es racional, no interseca a $(0, \sqrt{2})$. Si $x > \sqrt{2}$, $(\sqrt{2}, \infty)$ es un entorno de $x$ que no interseca a $(0, \sqrt{2})$. Así, $\text{cl}(0, \sqrt{2}) = [0, \sqrt{2}]$. \\
 
 $\bullet$ En ambos espacios topológicos, se tiene que $\text{cl}(\sqrt{2}, 3) = [\sqrt{2}, 3)$. Notemos que en cualquiera de las topologías, si un elemento básico contiene a $\sqrt{2}$, siempre intersecará $(\sqrt{2}, 3)$. Por otro lado, si $x < \sqrt{2}$, siempre podemos encontrar un entorno de $x$ en ambas topologías que no interseque este conjunto. Lo mismo si $x \geq 3$.  \hspace*{\fill} $\blacksquare$
 \vspace{0.5cm}
