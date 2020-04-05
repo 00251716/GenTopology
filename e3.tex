@@ -87,7 +87,7 @@ En la demostración anterior, la función $f$, al ser continua, toma todos los p
 \newpage
 
 \begin{mybox}
-	\textbf{5. } Todos los subespacios $(a, b)$  de $\mathbb{R}$ son homeomorfos. De la misma forma, todos los subespacios de $\mathbb{R}$ de la forma $[a, b]$ son homeomorfos.
+	\textbf{5. } Todos los subespacios $(a, b)$  de $\mathbb{R}$ son homeomorfos. Similarmente, todos los subespacios de $\mathbb{R}$ de la forma $[a, b]$ son homeomorfos.
 \end{mybox}	
 \begin{proof}
 	$\bullet$ Sea $(a, b)$ arbitrario. Mostramos que $(0,1) \cong (a, b)$. Consideremos la función $f: (0, 1) \rightarrow (a, b)$ dada por $f(x) = a(1-x) + bx$. La función $g: (a, b) \rightarrow (0, 1)$ dada por $g(x) = (x- a)/ (b - a)$ es inversa de $f$, de lo que deducimos que $f$ es biyectiva. \\
@@ -101,5 +101,87 @@ En la demostración anterior, la función $f$, al ser continua, toma todos los p
 	de forma que $g^{-1}$ es continua. \\
 	Así, hemos demostrado que $(0, 1) \cong (a, b)$. Puesto que la relación entre dos espacios de ser homeomorfos es una relación de equivalencia, podemos deducir que todos los intervalos abiertos de $\mathbb{R}$ son homeomorfos. 
 \end{proof}
+
+\begin{mybox}
+	\textbf{10. } Sean $f: A \rightarrow B$, $g: B \rightarrow D$ funciones continuas. La función $f \times g : A \times C \rightarrow B \times D$ definida mediante la ecuación
+	$$ (f \times g)(a, c) = (f(a), g(c)) $$
+	es continua. 
+\end{mybox}	
+\begin{proof}
+	Sea $U \times V$ un elemento básico de la topología sobre $B \times D$. Entonces, 
+	$$ (f \times g)^{-1}(U \times V) = f^{-1}(U) \times g^{-1}(V) .$$
+	Puesto que $f$ y $g$ son continuas, se sigue que los conjuntos  $f^{-1}(U)$ y $ g^{-1}(V)$ son abiertos en $A$ y $C$, respectivamente, de forma que su producto es abierto en $A \times C$.  Así, la preimagen de todo elemento básico es abierta, de lo que se sigue que $f \times g$ es continua. 
+\end{proof}
+
+\newpage
+
+\begin{mybox}
+	\textbf{11. } Consideremos una función $F: X \times Y \rightarrow Z$. Decimos que $F$ es \textbf{continua en cada variable separadamente} si \\
+	
+	(i) para cada $y_{0} \in Y$, la función $h_{y_{0}}: X \rightarrow Z$ definida mediante $h(x) = F(x, y_{0})$ es continua \\
+	
+	(ii) y para cada $x_{0} \in X$, la función $k_{x_{0}}: Y \rightarrow Z$ definida mediante $k(y) = F(x_{0}, y)$ es continua. \\
+	
+	Si $F$ es continua, se sigue que $F$ es continua en cada variable separadamente. 
+\end{mybox}	
+\begin{proof}
+	$\bullet$ Sea $y_{0} \in Y$ arbitrario y supongamos que $F$ es continua. Si $W$ es abierto en $Z$, queremos mostrar que $h_{y_{0}}^{-1}(W)$ es abierto en $X$. Por definición,
+	
+	$$ h^{-1}(W) = \{ x \in X \mid h(x) =  F(x, y_{0}) \in W \} $$
+	
+	$$ F^{-1}(W) = \{ (x, y) \in X \times Y \mid F(x, y) \in W \} .$$
+	
+	Por la continuidad de $F$, este último conjunto es abierto. Notamos que 
+	
+	$$ h^{-1}(W) \times \{ y_{0} \} = F^{-1}(W) \cap (X \times \{ y_{0} \}) .$$
+	
+	El conjunto anterior es abierto en el subespacio $X \times \{ y_{0} \}$ de $X \times Y$. Ahora consideremos la función $f:X \rightarrow X \times \{ y_{0} \}$ dada por 
+	$$ f(x) = (x, y_{0}). $$
+	Esta función es continua, dado que sus funciones coordenadas son continuas: la primera es la función identidad de $X$ a $X$ y la segunda es la función constante de $X$ a $\{ y_{0} \}$. Ahora, puesto que $h^{-1}(W) \times \{ y_{0} \}$ es abierto en $X \times \{ y_{0} \}$ y $f$ es continua, se sigue que 
+	$$ f^{-1}( h^{-1}(W) \times \{ y_{0} \} ) = h^{-1}(W)$$
+	es abierto en $X$.  \\
+	
+$\bullet$ Un argumento análogo muestra la continuidad de $F$ implica que para cada $x_{0}$ en $X$, la función $k$ es continua. 
+\end{proof}
+
+\newpage
+
+\section*{§3 }
+
+\begin{mybox}
+	\textbf{1.} Si $f$ y $g$ son dos funciones continuas que van de $X$ a un espacio de Hausdorff $Y$, el conjunto
+	$$ W =  \{ x \in X \mid f(x) = g(x)  \} $$
+	es cerrado en $X$.
+\end{mybox}
+\begin{proof}
+	Mostramos que 
+	$$ X \backslash W = \{ x \in X \mid f(x) \neq g(x) \} $$
+	es abierto. Si $x$ está en $X \backslash W$, se sigue que $f(x) \neq g(x)$. Puesto que $Y$ es Hausdorff, existen entornos disjuntos $U$ de $f(x)$ y $V$ de $g(x)$. Definamos 
+	$$ O := f^{-1}(U) \cap g^{-1}(V). $$
+	Entonces, $x \in O$.  Notamos que para cualquier $y$ en $O$, se debe cumplir que $f(y) \neq g(y)$: esto se deduce del hecho que $U$ y $V$ son disjuntos. Así, concluimos que $O \subseteq X \backslash W$. \\
+	Para un punto arbitrario de $X \backslash W$, hemos encontrado un entorno contenido en este conjunto, de lo que se sigue que es abierto. 	
+\end{proof}	
+
+\textbf{Una demostración fallida. } Al ver el problema anterior, una idea que puede surgir es usar la diagonal $\Delta$ de $Y$. Definamos $h: X \rightarrow Y \times Y$ como 
+$$ h(x) = ( f(x), g(x) ). $$
+Puesto que ambas funciones coordenadas son continuas, se sigue que $h$ es continua. Del hecho que $Y$ es Hausdorff, podemos deducir que la digonal $\Delta$ es cerrada en $Y$. Si se cumple que
+$$ h^{-1}(\Delta) = W $$
+habremos demostrado que $W$ es cerrado. La demostración que $W \subseteq h^{-1}(\Delta)$ no presenta problemas: todos los puntos de $W$ son enviados por $h$ a la diagonal $\Delta$. 
+Sin embargo, cuando queremos demostrar que $h^{-1}(\Delta) \subseteq W$, nos encontramos con el problema que $f$ y $g$ pueden no ser sobreyectivas: puede existir $y \in Y$ al que no llega ni $f$ ni $g$, de forma que $(y, y)$ estaría en $\Delta$ pero no en $h(W)$.\\
+
+La proposición siguiente es una generalización $\mathbf{11}$ en §$\mathbf{1}$.
+
+\begin{mybox}
+	\textbf{2. } Supongamos que $f$ y $g$ son funciones continuas que van de un espacio $X$ a un espacio de Hausdorff $Y$. Si $A$ es un subconjunto denso de $X$ y $f$ y $g$ son iguales en todos los puntos de $A$, se sigue que son iguales en todos los puntos de $X$. 
+\end{mybox}	
+\begin{proof}
+	Por el problema anterior, podemos deducir que 
+	$$ W = \{ x \in X \mid f(x) = g(x) \}$$
+	es cerrado en $X$. Notemos que $A \subseteq W$, de modo que $X = \text{cl}(A) \subseteq W$. Se sigue que $f = g$. 
+\end{proof}
+
+Lo anterior se puede reformular como que una función continua que toma valores en un espacio de Hausdorff está determinada por sus valores en un conjunto denso. \\
+
+Willard, General Topology, 48
 
 \end{document}
