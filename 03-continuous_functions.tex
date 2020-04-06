@@ -59,15 +59,17 @@ Semanas 4 y 5: Continuidad y homeomorfismos}
 	Por la hipótesis, sabemos que $\{0 \} \subseteq f(\mathbb{R})$. A partir de esto, deducimos que $f(\mathbb{R}) = \{ 0 \}$.
 \end{proof}
 
-En la demostración anterior, la función $f$, al ser continua, toma todos los puntos \textit{cercanos} $\mathbb{Q}$, de forma que sus imágenes sean \textit{cercanas} a $f(\mathbb{Q})$. Sin embargo, este último conjunto es el unipuntual $\{ 0 \}$. Cabe destacar que la densidad de los racionales juega un papel importante en la demostración anterior. Específicamente, en el hecho que $\text{cl}(\mathbb{Q}) = \mathbb{R}$. La siguiente demostración muestra otra forma de usar este hecho.  
-
 \begin{proof}
 	Sea $x$ irracional y supongamos que $f(x) \neq 0$. Puesto que $\mathbb{R}$ es $T_{1}$, podemos encontrar un entorno $U$ de $f(x)$ que no contenga a $0$. Se sigue, por la continuidad de $f$, que $f^{-1}(U)$ es abierto. Del hecho que $U$ es abierto, podemos deducir que existe un racional $q$ en $f^{-1}(U)$. Esto implicaría que $0 = f(q) \in U$, lo cual es una contradicción. 
 \end{proof}
 
 \section*{§2 }
 
-\textbf{Definición I. } Sean $X, Y$ espacios topológicos y $f: X \rightarrow Y$una biyección. Si $f$ y $f^{-1}$ son continuas, decimos que $f$ es un \textbf{homeomorfismo}. \\
+\begin{mybox}
+	\textbf{2. }  Supongamos que $f: X \rightarrow Y$ es continua. Si $x$ es un punto límite del subconjunto $A$ de $X$, ¿es necesariamente cierto que $f(x)$ es un punto límite de $f(A)$? 
+\end{mybox}	
+
+$\bullet$ No es necesariamente cierto. Podría ser que el conjunto $Y$ no tenga puntos límite. Por ejemplo, $f: \mathbb{R} \rightarrow \mathbb{R}$ dada por $f(x) = 2$ es una función continua. Entonces, todo real $r$ es un punto límite de $\mathbb{R}$, pero $f(r) = 2$ no es un punto límite de ${2}$, porque este conjunto no tiene puntos límite.  
 
 \begin{mybox}
 	\textbf{3. } Consideremos $\text{id}: (X, \mathcal{T}_{1}) \rightarrow (X, \mathcal{T}_{2})$. Se cumplen las siguientes proposiciones: \\
