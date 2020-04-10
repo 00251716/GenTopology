@@ -40,7 +40,7 @@ Semanas 4 y 5: Continuidad y homeomorfismos}
 \maketitle	
 
 \begin{mybox}
-	\textbf{2. } Sean $X$ y $Y$ espacios topológicos y supongamos que $\mathcal{B}$ es una base para la topología sobre $Y$. Una función $f: X \rightarrow Y$ es continua si y solo si $f^{-1}(B)$ es abierto para todo $B \in \mathcal{B}$.
+	\textbf{1. } Sean $X$ y $Y$ espacios topológicos y supongamos que $\mathcal{B}$ es una base para la topología sobre $Y$. Una función $f: X \rightarrow Y$ es continua si y solo si $f^{-1}(B)$ es abierto para todo $B \in \mathcal{B}$.
 \end{mybox}	
 \begin{proof}
 	$(\Rightarrow)$ Si $f$ es continua, se sigue que la preimagen de cualquier abierto en $Y$ es abierta en $X$. En particular, la preimagen de cualquier elemento de la base $\mathcal{B}$ es abierta.\\
@@ -52,7 +52,7 @@ Semanas 4 y 5: Continuidad y homeomorfismos}
 \end{proof}
 
 \begin{mybox}
-	\textbf{11. } Sea $f: \mathbb{R} \rightarrow \mathbb{R}$ una función continua tal que $f(q) = 0$ para todo racional $q$. Mostrar que $f(x) = 0$ para todo $x \in \mathbb{R}$.  	
+	\textbf{2. } Sea $f: \mathbb{R} \rightarrow \mathbb{R}$ una función continua tal que $f(q) = 0$ para todo racional $q$. Mostrar que $f(x) = 0$ para todo $x \in \mathbb{R}$.  	
 \end{mybox}	
 
 \begin{proof}
@@ -69,13 +69,13 @@ Semanas 4 y 5: Continuidad y homeomorfismos}
 
 
 \begin{mybox}
-	\textbf{2. }  Supongamos que $f: X \rightarrow Y$ es continua. Si $x$ es un punto límite del subconjunto $A$ de $X$, ¿es necesariamente cierto que $f(x)$ es un punto límite de $f(A)$? 
+	\textbf{3. }  Supongamos que $f: X \rightarrow Y$ es continua. Si $x$ es un punto límite del subconjunto $A$ de $X$, ¿es necesariamente cierto que $f(x)$ es un punto límite de $f(A)$? 
 \end{mybox}	
 
 $\bullet$ No es necesariamente cierto. Podría ser que el conjunto $Y$ no tenga puntos límite. Por ejemplo, $f: \mathbb{R} \rightarrow \mathbb{R}$ dada por $f(x) = 1$ es una función continua. Consideremos $A = (2,3)$.  Entonces, $2$ es un punto límite de $A$, pero $f(2) = 1$ no es un punto límite de $f(A) = \{ 1 \}$: este conjunto no tiene puntos límite. 
 
 \begin{mybox}
-	\textbf{3. } Consideremos $\text{id}: (X, \mathcal{T}_{1}) \rightarrow (X, \mathcal{T}_{2})$. Se cumplen las siguientes proposiciones: \\
+	\textbf{4. } Consideremos $\text{id}: (X, \mathcal{T}_{1}) \rightarrow (X, \mathcal{T}_{2})$. Se cumplen las siguientes proposiciones: \\
 	
 	(i) La función $\text{id}$ es continua si y solo si $\mathcal{T}_{1}$ es más fina que $\mathcal{T}_{2}$. \\
 	
@@ -92,7 +92,7 @@ $\bullet$ No es necesariamente cierto. Podría ser que el conjunto $Y$ no tenga 
 \newpage
 
 \begin{mybox}
-	\textbf{5. } Todos los subespacios $(a, b)$  de $\mathbb{R}$ son homeomorfos. Similarmente, todos los subespacios de $\mathbb{R}$ de la forma $[a, b]$ son homeomorfos.
+	\textbf{5. } Todos los subespacios $(a, b)$  de $\mathbb{R}$ son homeomorfos.
 \end{mybox}	
 \begin{proof}
 	$\bullet$ Sea $(a, b)$ arbitrario. Mostramos que $(0,1) \cong (a, b)$. Consideremos la función $f: (0, 1) \rightarrow (a, b)$ dada por $f(x) = a(1-x) + bx$. La función $g: (a, b) \rightarrow (0, 1)$ dada por $g(x) = (x- a)/ (b - a)$ es inversa de $f$, de lo que deducimos que $f$ es biyectiva. \\
@@ -108,7 +108,7 @@ $\bullet$ No es necesariamente cierto. Podría ser que el conjunto $Y$ no tenga 
 \end{proof}
 
 \begin{mybox}
-	\textbf{9. } Sea $\{ A_{i} \}_{i \in J}$ una familia de subconjuntos de $X$ tal que $X = \bigcup_{i \in J} A_{i}$. Sea $f: X \rightarrow Y$ y supongamos que $\restr{f}{A_{i}}$ es continua para todo $i \in J$. \\
+	\textbf{6. } Sea $\{ A_{i} \}_{i \in J}$ una familia de subconjuntos de $X$ tal que $X = \bigcup_{i \in J} A_{i}$. Sea $f: X \rightarrow Y$ y supongamos que $\restr{f}{A_{i}}$ es continua para todo $i \in J$. \\
 	
 	(a) Mostrar que si la colección $\{ A_{i} \}_{i \in J}$ es finita y cada $A_{i}$ es cerrado, entonces $f$ es continua. \\
 	
@@ -148,11 +148,28 @@ lo que contradice el hecho que $X$ es infinito.
 Ahora vamos a la demostración de (c).
 
 \begin{proof}
-	Supongamos que $\{ A_{i} \}_{i \in J}$ es localmente finita y que cada $A_{i}$ es cerrado. Sea $C$ cerrado en $Y$. 
+	Supongamos que $\{ A_{i} \}_{i \in J}$ es localmente finita y que cada $A_{i}$ es cerrado. Sea $C$ cerrado en $Y$. Definimos $C_{i} = (\restr{f}{A_{i}})^{-1}(C)$ para cada $i \in I$. Por hipótesis, esta es una colección de conjuntos cerrados. Además, es localmente finita: consideremos $x$ en $X$ y el entorno $U$ de $x$ que interseca solo a una cantidad finita de elementos de $\{A_{i} \}_{i \in I}$. Es decir, el conjunto 
+	$$ \{ i \in I \mid U \cap A_{i} \neq \varnothing \} $$
+	es finito. Notamos que para cada $i \in I$, $C_{i} \subseteq A_{i}$. Consideramos el conjunto $U$ como el entorno candidato de $x$ que interseca solo a una cantidad finita de elementos de $\{ C_{i} \}_{i \in I}$. Entonces, se cumple que 
+	$$\{ i \in I \mid U \cap C_{i} \neq \varnothing \} \subseteq  \{ i \in I \mid U \cap A_{i} \neq \varnothing \},$$
+	de forma que el conjunto de la derecha debe ser finito y $\{ C_{i} \}_{i \in I}$ localmente finita. Así, 
+	$$f^{-1}(C) = \bigcup_{i \in I} (\restr{f}{A_{i}})^{-1}(C)  = \bigcup_{i \in I} C_{i} $$ 
+	es cerrado, al ser la unión de una colección localmente finita de cerrados. Por tanto, la función $f$ es continua.  
 \end{proof}
 
 \begin{mybox}
-	\textbf{10. } Sean $f: A \rightarrow B$, $g: B \rightarrow D$ funciones continuas. La función $f \times g : A \times C \rightarrow B \times D$ definida mediante la ecuación
+	\textbf{7.} Sea $X$ un espacio topológico y $\mathcal{A} \subseteq \mathcal{P}(X)$ localmente finita. Entonces, toda colección $\mathcal{B} \subseteq \mathcal{A}$ es localmente finita. 
+\end{mybox}	
+\begin{proof}
+	Consideremos $x$ en $X$ y un entorno $U$ de $x$ que solo interseca una cantidad finita de elementos de $\mathcal{A}$. Es decir, el conjunto
+	$$ \{ A \in \mathcal{A} \mid U \cap A \neq \varnothing \} $$
+	es finito. Además, contiene al conjunto
+	$$ \{ B \in \mathcal{B} \mid U \cap B \neq \varnothing \} $$
+	de forma que este conjunto también debe ser finito. Así, para todo $x$ en $X$ existe un entorno que interseca solo a una cantidad finita de elementos de $\mathcal{B}$.
+\end{proof}
+
+\begin{mybox}
+	\textbf{8. } Sean $f: A \rightarrow B$, $g: B \rightarrow D$ funciones continuas. La función $f \times g : A \times C \rightarrow B \times D$ definida mediante la ecuación
 	$$ (f \times g)(a, c) = (f(a), g(c)) $$
 	es continua. 
 \end{mybox}	
@@ -165,7 +182,7 @@ Ahora vamos a la demostración de (c).
 \newpage
 
 \begin{mybox}
-	\textbf{11. } Consideremos una función $F: X \times Y \rightarrow Z$. Decimos que $F$ es \textbf{continua en cada variable separadamente} si \\
+	\textbf{9. } Consideremos una función $F: X \times Y \rightarrow Z$. Decimos que $F$ es \textbf{continua en cada variable separadamente} si \\
 	
 	(i) para cada $y_{0} \in Y$, la función $h_{y_{0}}: X \rightarrow Z$ definida mediante $h(x) = F(x, y_{0})$ es continua \\
 	
@@ -196,7 +213,7 @@ $\bullet$ Un argumento análogo muestra la continuidad de $F$ implica que para c
 \newpage
 
 \begin{mybox}
-	\textbf{13. } Sea $A \subseteq X$ y $f: A \rightarrow Y$ continua, donde $Y$ es un espacio de Hausdorff. Si $f$ se puede extender a una función continua $g: \bar{A} \rightarrow Y$, entonces $g$ es única. 
+	\textbf{10. } Sea $A \subseteq X$ y $f: A \rightarrow Y$ continua, donde $Y$ es un espacio de Hausdorff. Si $f$ se puede extender a una función continua $g: \bar{A} \rightarrow Y$, entonces $g$ es única. 
 \end{mybox}	
 
 \begin{proof}
@@ -216,7 +233,7 @@ Supongamos que existen dos funciones continuas $g_{1}, g_{2}: \bar{A} \rightarro
 \end{proof}
 	
 \begin{mybox}
-	\textbf{1.} Si $f$ y $g$ son dos funciones continuas que van de $X$ a un espacio de Hausdorff $Y$, el conjunto
+	\textbf{11.} Si $f$ y $g$ son dos funciones continuas que van de $X$ a un espacio de Hausdorff $Y$, el conjunto
 	$$ W =  \{ x \in X \mid f(x) = g(x)  \} $$
 	es cerrado en $X$.
 \end{mybox}
@@ -239,7 +256,7 @@ Sin embargo, cuando queremos demostrar que $h^{-1}(\Delta) \subseteq W$, nos enc
 La proposición siguiente es una generalización $\mathbf{11}$ en §$\mathbf{1}$.
 
 \begin{mybox}
-	\textbf{2. } Supongamos que $f$ y $g$ son funciones continuas que van de un espacio $X$ a un espacio de Hausdorff $Y$. Si $A$ es un subconjunto denso de $X$ y $f$ y $g$ son iguales en todos los puntos de $A$, se sigue que son iguales en todos los puntos de $X$. 
+	\textbf{12. } Supongamos que $f$ y $g$ son funciones continuas que van de un espacio $X$ a un espacio de Hausdorff $Y$. Si $A$ es un subconjunto denso de $X$ y $f$ y $g$ son iguales en todos los puntos de $A$, se sigue que son iguales en todos los puntos de $X$. 
 \end{mybox}	
 \begin{proof}
 	Por el problema anterior, podemos deducir que 
