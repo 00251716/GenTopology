@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[a4paper,bindingoffset=0.2in,%
+left=1in,right=1in,top=1in,bottom=1in,%
+footskip=.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{pifont}
+\setlength{\tabcolsep}{3pt}
+\decimalpoint
+\newcommand{\xmark}{\ding{55}}
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
+
+\newmdenv[innerlinewidth=0.5pt, roundcorner=4pt,linecolor=mycolor,innerleftmargin=6pt,
+innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+		#1 % the function
+		\vphantom{\big|} % pretend it's a little taller at normal size
+		\right|_{#2} % this is the delimiter
+}}
+
+\setlength\parindent{0pt}
+
+\newtheorem{definition}{Definición}
+\newtheorem{proposition}{Proposición}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+\date{10 - 24 de abril de 2020}
+\title{ \textbf{Topología} \\
+Semanas 6 y 7: Productos cartesianos arbitrarios}
+\maketitle	
+
+\begin{definition}
+	Sea $J$ un conjunto de índices. Una $J$-tupla de elementos de un conjunto $X$ es una función 
+	$$ \mathbf{x}: J \rightarrow X. $$
+	Si $\alpha$ es un elemento de $X$, a menudo denotamos el valor de $\mathbf{x}$ en $\alpha$ como $x_{\alpha}$ en lugar de $\mathbf{x}(\alpha)$ y lo denominamos la $\alpha$-ésima coordenada de $\mathbf{x}$. A menudo denotamos $\mathbf{x}$ como 
+	$$ (x_{\alpha})_{\alpha \in J} .$$
+	Además, denotamos el conjunto de todas las $J$-tuplas de elementos de $X$ como $X^{J}$. De manera más formal,
+	$$ X^{J} = \{ \mathbf{x} \subseteq J \times X \mid \mathbf{x}: J \rightarrow X \}. $$ 
+\end{definition}
+
+$\bullet \textbf{Ejemplo 1. }$ Si $X = \mathbb{R}$ y $J = 3$, $\mathbb{R}^{3}$ es el conjunto de todas las $3$-tuplas de números reales. \\
+
+$\bullet \textbf{Ejemplo 2.}$ Si $X = \mathbb{C}$ y $J = \mathbb{Z}$. Un elemento de $\mathbb{C}^{\mathbb{Z}}$ podría ser, por ejemplo, la función $\mathbf{x}$ dada por 
+$$ x_{k} = e^{-ik} $$
+para cualquier $k \in \mathbb{Z}$, que también podemos denotar como
+$$ (\ldots,e^{2i}, e^{i}, 1, e^{-i}, e^{-2i} ,\ldots) $$
+o como $(e^{-ik})_{k \in \mathbb{Z}}$. En general, los elementos de $\mathbb{C}^{\mathbb{Z}}$ son las $\mathbb{Z}$-tuplas de números complejos. \\
+
+$\bullet \textbf{Ejemplo 3. }$ Si $X = J = \mathbb{R}$, obtenemos
+$$ \mathbb{R}^{\mathbb{R}} = \{ f \subseteq \mathbb{R} \times \mathbb{R} \mid f: \mathbb{R} \rightarrow \mathbb{R} \} .$$
+
+\begin{definition}
+	Sea $\{ A_{i} \}_{i \in J}$ una famila indexada de conjuntos. Definimos el producto cartesiano $\prod_{i \in J} A_{i}$ como 
+	$$ \prod_{i \in J} A_{j} := \{ \mathbf{x}: J \rightarrow \bigcup_{i \in J} A_{i}  \mid \forall i \in I \hspace{0.2cm} ( \mathbf{x}(i) \in A_{i} ) \}.$$
+	Notamos que si $X = A_{i}$ para toda $i \in J$, el producto cartesiano coincide con el conjunto $X^{J}$ de todas las $J$-tuplas de elementos de $X$. 
+\end{definition}
+
+\begin{definition}
+	
+\end{definition}
+
+\end{document}
