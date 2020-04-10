@@ -19,6 +19,12 @@
 \newmdenv[innerlinewidth=0.5pt, roundcorner=4pt,linecolor=mycolor,innerleftmargin=6pt,
 innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
 
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+		#1 % the function
+		\vphantom{\big|} % pretend it's a little taller at normal size
+		\right|_{#2} % this is the delimiter
+}}
 
 \setlength\parindent{0pt}
 
@@ -32,8 +38,6 @@ innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
 \title{ \textbf{Topología} \\
 Semanas 4 y 5: Continuidad y homeomorfismos}
 \maketitle	
-
-\section*{§1}
 
 \begin{mybox}
 	\textbf{2. } Sean $X$ y $Y$ espacios topológicos y supongamos que $\mathcal{B}$ es una base para la topología sobre $Y$. Una función $f: X \rightarrow Y$ es continua si y solo si $f^{-1}(B)$ es abierto para todo $B \in \mathcal{B}$.
@@ -63,7 +67,6 @@ Semanas 4 y 5: Continuidad y homeomorfismos}
 	Sea $x$ irracional y supongamos que $f(x) \neq 0$. Puesto que $\mathbb{R}$ es $T_{1}$, podemos encontrar un entorno $U$ de $f(x)$ que no contenga a $0$. Se sigue, por la continuidad de $f$, que $f^{-1}(U)$ es abierto. Del hecho que $U$ es abierto, podemos deducir que existe un racional $q$ en $f^{-1}(U)$. Esto implicaría que $0 = f(q) \in U$, lo cual es una contradicción. 
 \end{proof}
 
-\section*{§2 }
 
 \begin{mybox}
 	\textbf{2. }  Supongamos que $f: X \rightarrow Y$ es continua. Si $x$ es un punto límite del subconjunto $A$ de $X$, ¿es necesariamente cierto que $f(x)$ es un punto límite de $f(A)$? 
@@ -102,6 +105,50 @@ $\bullet$ No es necesariamente cierto. Podría ser que el conjunto $Y$ no tenga 
 	$$ g^{-1}((k, l )) = ( a(1- k) + bk, a(1- l) + bl ) \subseteq (a, b), $$
 	de forma que $g^{-1}$ es continua. \\
 	Así, hemos demostrado que $(0, 1) \cong (a, b)$. Puesto que la relación entre dos espacios de ser homeomorfos es una relación de equivalencia, podemos deducir que todos los intervalos abiertos de $\mathbb{R}$ son homeomorfos. 
+\end{proof}
+
+\begin{mybox}
+	\textbf{9. } Sea $\{ A_{i} \}_{i \in J}$ una familia de subconjuntos de $X$ tal que $X = \bigcup_{i \in J} A_{i}$. Sea $f: X \rightarrow Y$ y supongamos que $\restr{f}{A_{i}}$ es continua para todo $i \in J$. \\
+	
+	(a) Mostrar que si la colección $\{ A_{i} \}_{i \in J}$ es finita y cada $A_{i}$ es cerrado, entonces $f$ es continua. \\
+	
+	(b) Encontrar un ejemplo donde la colección $\{ A_{i} \}_{i \in J}$ sea contable y cada $A_{i}$ cerrado, pero $f$ no sea continua.  \\
+	
+	(c) Una colección de subconjuntos de un espacio $X$ se denomina \textbf{localmente finita} si cada $x \in X$ tiene un entorno que interseca solo a una cantidad finita de conjuntos en la colección. Mostrar que si $\{ A_{i} \}_{i \in J}$ es localmente finita y cada $A_{i}$ es cerrado, entonces $f$ es continua.
+	
+\end{mybox}	
+
+\begin{proof}
+	Supongamos que $\{ A_{i} \}_{i \in J}$ es finita y que cada uno de estos conjuntos es cerrado. Sea $C$ un cerrado de $Y$. Entonces, 
+	$$ f^{-1}(C) = \bigcup_{i \in J} ( \restr{f}{A_{i}} )^{-1}(C) .$$
+	Al ser una unión finita de conjuntos cerrados, se sigue que $f^{-1}(C)$ es cerrado. Por tanto, la función $f$ es continua.
+\end{proof}
+
+$\bullet$ Consideremos $X = \mathbb{Z}$ con la topología cofinita  y $f: \mathbb{Z} \rightarrow \mathbb{R}$ dada por $f(m) = m$, donde $\mathbb{R}$ está equipado con la topología usual. Entonces, podemos escribir
+
+$$ \mathbb{Z} = \bigcup_{m \in \mathbb{Z}} \{ m \} $$
+
+Al ser conjuntos finitos, todos los conjuntos unipuntuales $\{m \}$ son cerrados en $\mathbb{Z}$ con la topología cofinita.
+
+Notamos que cada restricción $\restr{f}{\{m \}}$ es continua: todas son funciones constantes. Sin embargo, 
+
+$$ f^{-1}((1, 5)) = \{ 2, 3, 4 \}.$$
+
+Notamos que $(1, 5)$ es abierto en $\mathbb{R}$ con la topología usual, pero $\{ 2, 3, 4 \}$ no es abierto en $\mathbb{Z}$ con la topología cofinita. \\
+
+El ejemplo anterior está relacionado con la siguiente proposición. \\
+
+\textbf{Proposición. } Supongamos que $f:X \rightarrow Y$ es continua, donde $X$ es un conjunto infinito equipado con la topología cofinita y $Y$ es un espacio de Hausdorff. Entonces, $f$ es constante. 
+\begin{proof}
+Procedemos por contradiccíón. Supongamos que existen $x_{1}$ y $x_{2}$ en $X$ tales que $f(x_{1}) \neq f(x_{2})$. Puesto que $Y$ es de Hausdorff, existen entornos disjuntos $U$ de $f(x_{1})$ y $V$ de $f(x_{2})$. Se sigue que el conjunto $f^{-1}(U) \cap f^{-1}(V)$ es abierto en $X$. Sin embargo, $f^{-1}(U) \cap f^{-1}(V) =f^{-1}(U \cap V) = f^{-1}(\varnothing) = \varnothing  $.  Entonces,
+$$ X = X \backslash \varnothing = X \backslash (f^{-1}(U) \cap f^{-1}(V)) = X \backslash f^{-1}(U) \cup X \backslash f^{-1}(V)$$ 
+lo que contradice el hecho que $X$ es infinito. 
+\end{proof}
+
+Ahora vamos a la demostración de (c).
+
+\begin{proof}
+	Supongamos que $\{ A_{i} \}_{i \in J}$ es localmente finita y que cada $A_{i}$ es cerrado. Sea $C$ cerrado en $Y$. 
 \end{proof}
 
 \begin{mybox}
@@ -148,8 +195,26 @@ $\bullet$ Un argumento análogo muestra la continuidad de $F$ implica que para c
 
 \newpage
 
-\section*{§3 }
+\begin{mybox}
+	\textbf{13. } Sea $A \subseteq X$ y $f: A \rightarrow Y$ continua, donde $Y$ es un espacio de Hausdorff. Si $f$ se puede extender a una función continua $g: \bar{A} \rightarrow Y$, entonces $g$ es única. 
+\end{mybox}	
 
+\begin{proof}
+Supongamos que existen dos funciones continuas $g_{1}, g_{2}: \bar{A} \rightarrow Y$ tales que
+	$$ \restr{g_{1}}{A} = \restr{g_{2}}{A} = f.  $$
+	Puesto que $g_{1}$ y $g_{2}$ son continuas y $Y$ es Hausdorff, se sigue que
+	$$ C = \{ x \in \bar{A} \mid g_{1}(x) = g_{2}(x) \} $$
+	es cerrado en $\bar{A}$, de lo que se sigue que es cerrado en $X$. Notamos que $A \subseteq C$, de modo que se debe cumplir que $\bar{A} \subseteq C$. Así, $\bar{A} = C$ y se sigue que $g_{1} = g_{2}$.
+\end{proof}
+
+\begin{proof}
+	También podemos proceder por contradicción. Supongamos que existe un $x \in \bar{A}$ tal que $g_{1}(x) \neq g_{2}(x)$. Usando el hecho que $Y$ es de Hausdorff, deducimos que existen entornos $U$ de $g_{1}(x)$ y $V$ de $g_{2}(x)$ tales que $U \cap V = \varnothing$. Por la continuidad de $g_{1}$ y de $g_{2}$, se sigue que el conjunto
+	$$ g_{1}^{-1}(U) \cap g_{2}^{-1}(V) $$
+	es un entorno de $x$. Puesto que $x \in \bar{A}$, se sigue que existe un $x'$ en
+	$$ A \cap g_{1}^{-1}(U) \cap g_{2}^{-1}(V) $$
+	A partir de esto podemos deducir que $U$ y $V$ no son disjuntos: contienen el punto $g_{1}(x') = g_{2}(x')$, lo cual contradice nuestra suposición anterior. Entonces, debe  ser el caso que $g_{1} = g_{2}$. 
+\end{proof}
+	
 \begin{mybox}
 	\textbf{1.} Si $f$ y $g$ son dos funciones continuas que van de $X$ a un espacio de Hausdorff $Y$, el conjunto
 	$$ W =  \{ x \in X \mid f(x) = g(x)  \} $$
@@ -184,6 +249,27 @@ La proposición siguiente es una generalización $\mathbf{11}$ en §$\mathbf{1}$
 
 Lo anterior se puede reformular como que una función continua que toma valores en un espacio de Hausdorff está determinada por sus valores en un conjunto denso. \\
 
-Willard, General Topology, 48
+\begin{mybox}
+	\textbf{13. } Sea $\{A_{i} \}_{i \in I}$ es una colección localmente finita de conjuntos cerrados en un espacio $X$. Entonces, $\bigcup_{i \in I} A_{i}$ es un conjunto cerrado. 
+\end{mybox}	
+
+\begin{proof}
+	Mostramos que $X \backslash \bigcup_{i \in I} A_{i}$ es un conjunto abierto. Sea $x$ un elemento de $ X \backslash \bigcup_{i \in I} A_{i}$ y $U$ el entorno de $x$ que interseca solo a una cantidad finita de elementos de $\{A_{i} \}_{i \in I}$. \\
+	
+	\textit{Caso I. } $U$ no interseca a ningún elemento de $\{A_{i} \}_{i \in I}$. Entonces, $U \subseteq X \backslash \bigcup_{i \in I} A_{i}$. \\
+	
+	\textit{Caso II. } Supongamos que $U$ interseca solo a los conjuntos $A_{1}, \ldots, A_{n}$. Notamos que $\bigcup_{i=1}^{n} A_{i}$, al ser una unión finita de conjuntos cerrados, es un conjunto cerrado. Entonces,
+	$$U \backslash \bigcup_{i = 1}^{n} A_{i} $$
+	es un conjunto abierto que cumple que
+	$$ x \in U \backslash \bigcup_{i = 1}^{n} A_{i} \subseteq  X \backslash \bigcup_{i \in I} A_{i}$$
+	de lo que concluimos que $X \backslash \bigcup_{i \in I} A_{i}$ es abierto. 
+\end{proof}
+
+\begin{mybox}
+	\textbf{14. }Sea $X$ un espacio topológico y $A \subseteq X$. Si $U$ es un abierto tal que $U \cap A = \varnothing$, entonces $U \cap \bar{A} = \varnothing$.
+\end{mybox}	
+\begin{proof}
+	Notamos que el conjunto $X \backslash U$ es cerrado y que $A \subseteq X \backslash U$, de lo que se sigue que $\bar{A} \subseteq X \backslash U$ y que $ \bar{A} \cap U = \varnothing$. 
+\end{proof}
 
 \end{document}
