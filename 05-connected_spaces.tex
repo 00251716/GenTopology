@@ -1,0 +1,183 @@
+\documentclass{article}
+\usepackage[a4paper,bindingoffset=0.2in,%
+left=1in,right=1in,top=1in,bottom=1in,%
+footskip=.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{pifont}
+\setlength{\tabcolsep}{3pt}
+\decimalpoint
+\newcommand{\xmark}{\ding{55}}
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
+
+\newmdenv[innerlinewidth=0.5pt, roundcorner=4pt,linecolor=mycolor,innerleftmargin=6pt,
+innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+		#1 % the function
+		\vphantom{\big|} % pretend it's a little taller at normal size
+		\right|_{#2} % this is the delimiter
+}}
+
+\setlength\parindent{0pt}
+
+\newtheorem{definition}{Definición}
+\newtheorem{proposition}{Proposición}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+\date{10 - 24 de abril de 2020}
+\title{ \textbf{Topología} \\
+Espacios conexos}
+\maketitle	
+
+
+\section*{§1 Definiciones}
+
+
+\section*{§2 Problemas}
+
+\begin{mybox}
+	\textbf{Problema 1. } ¿Es el espacio $\mathbb{R}_{\ell}$ conexo?
+\end{mybox}	
+
+ Es disconexo. Una separación de este espacio es $ \mathbb{R} = (-\infty, 0) \cup [0, \infty) .$ También se sigue que es disconexo del hecho que todos los conjuntos de la forma $[a, b)$ son clopen. 
+
+\begin{mybox}
+	\textbf{Problema 2. } Sean $\mathcal{T}_{1}$ y $\mathcal{T}_{2}$ topologías sobre un conjunto $X$. Si $\mathcal{T}_{1} \subseteq \mathcal{T}_{2}$, ¿qué se puede decir de la conexión de $X$?
+\end{mybox}	
+
+Si $(X, \mathcal{T}_{1})$ es conexo, no se sigue que $(X, \mathcal{T}_{2})$ sea conexo. Un ejemplo de este hecho es el problema anterior. \\
+Por otro lado, si $X$ es conexo en la topología más fina, sí se sigue que $X$ también será conexo en la otra topología. 
+Procedemos por contradicción. Supongamos que $X$ es disconexo cuando se observa con la topología $\mathcal{T}_{1}$. Entonces, existe una separación $X = U \cup V$ en $\mathcal{T}_{1}$. Sin embargo, esta también sería una separación en $\mathcal{T}_{2},$ contradiciendo el hecho que $X$ es conexo en esta topología. Concluimos que si un conjunto $X$ es conexo, también lo será en cualquier otra topología más gruesa. \\
+El mismo argumento que se usó en la contradicción anterior muestra que si $X$ es disconexo en alguna topología, también lo será en cualquier topología más fina. 
+
+
+\begin{mybox}
+	\textbf{Problema 3. } Demuestre que si $X$ es un conjunto infinito, entonces es conexo en la topología cofinita. 
+\end{mybox}	
+\begin{proof}
+	Mostramos que si $X$ es disconexo en la topología cofinita, entonces es finito. Supongamos que $X$ es disconexo, de forma que existen dos conjuntos disjuntos, abiertos, no vacíos $U$ y $V$ tales que $X = U \cup V$. Entonces, $X \backslash U = V$ y $X \backslash V = U$ son conjuntos finitos, de forma que $X$, siendo la unión de dos conjuntos finitos, también es finito.  
+\end{proof}
+
+\begin{mybox}
+	\textbf{Problema 4. } En todo espacio topológico no vacío, los subespacios $\varnothing$ y los conjuntos unipuntuales son conexos. Un espacio topológico $X$ se denomina \textbf{totalmente disconexo} si no tiene subespacios conexos no triviales: $X$ es totalmente disconexo si sus únicos subespacios conexos son el conjunto vacío y los unipuntuales.  Demostrar que si $X$ tiene la topología discreta, $X$ es totalmente disconexo. ¿es cierto el recíproco?
+\end{mybox}	
+\begin{proof}
+	Supongamos que $A \subseteq X$ tiene al menos dos elementos distintos $a$  y $b$. Entonces, podemos escribir
+	$$ A = \{ a \} \cup A \backslash \{ a \} .$$
+	Estos conjuntos son abiertos, disjuntos y no vacíos: $b \in A \backslash \{ a \}$, de forma que son una separación de $A$. Concluimos que cualquier subespacio de $X$ con al menos dos elementos es disconexo.  
+	
+\end{proof}	
+
+El recíproco no es cierto. Por ejemplo, el subespacio $\mathbb{Q}$ de $\mathbb{R}$ es totalmente disconexo, pero su topología es diferente de la discreta: es, de hecho, estrictamente más gruesa. Si $U$ es abierto en  $\mathbb{Q}$, entonces tiene al menos dos elementos $p$ y $q$, de modo que existe un irracional $a$ entre $p$ y $q$. Así, 
+$$ U = \left( U \cap (- \infty, a) \right) \cup \left( U \cap (a, \infty) \right) $$
+es una separación de $U$. 
+
+\begin{mybox}
+	\textbf{Problema 5. } Consideremos un espacio topológico $X$ y $A \subseteq X$. Supongamos que $C$ es un subespacio conexo de $X$ que interseca tanto a $A$ como a $X \backslash A$. Entonces, $C$ debe intersecar a $\partial A$. 
+\end{mybox}	
+\begin{proof}
+	Demostramos la contrarrecíproca. Supongamos que $C \cap \partial A = \varnothing. $ Podemos escribir
+	$$(\star) \hspace{0.3cm} C = (C \cap A) \cup (C \cap X \backslash A) $$
+	y notamos que los conjuntos en esta unión anterior son disjuntos y, por hipótesis, no vacíos. Queremos mostrar que ninguno de los dos puede contener un punto límite del otro. Supongamos, sin pérdida de generalidad, que $C \cap X \backslash A $ contiene un punto límite $x$ de $C \cap A$, entonces, se tiene que 
+	$$ x \in \overline{C \cap A} \subseteq \overline{C} \cap \overline{A} .$$
+	$$ \text{ y que } \hspace{0.2cm} x \in C \cap X \backslash A $$
+	de modo que $x \in C \cap \overline{A} \cap \overline{X \backslash A} = C \cap \partial A$,
+	contradiciendo nuestra hipótesis que $C$ no interseca la frontera $\partial A$. Concluimos que $(\star)$ es una separación de $C$, de forma que es un subespacio disconexo. 
+\end{proof}
+
+\begin{mybox}
+	\textbf{Problema 6. } Demostrar que \\
+	$(a)$ Si $X$ es un espacio conexo y $A \subsetneq X$ es no vacío, entonces $\partial A \neq \varnothing$. \\
+	$(b)$ Recíprocamente, si $X$ es disconexo, entonces existe un subconjunto propio no vacío $B$ de $X$ tal que $\partial B = \varnothing$.
+	
+\end{mybox}	
+
+\begin{mybox}
+	\textbf{Problema 7. } Demostrar que un espacio $X$ es disconexo si y solo si existe una función $f:X \rightarrow \{0, 1\}$ continua y sobreyectiva. 
+\end{mybox}	
+
+\begin{proof}
+	$(\Rightarrow)$ Supongamos que $X$ es disconexo. Entonces, debe tener un subconjunto propio no vacío $U$ que sea clopen. Se sigue que la función $\chi_{U}: X \rightarrow \{0, 1\}$ es continua. Esta función es, además, sobreyectiva, de lo que se sigue la conclusión.\\
+	$(\Leftarrow)$ Ahora supongamos que existe $f: X \rightarrow \{0, 1 \}$ continua y sobreyectiva. Queremos mostrar que $X$ tiene una separación. En concreto,
+	$$ X = f^{-1}(\{0\}) \cup f^{-1}(\{1\}) .$$
+	Los conjuntos en esta unión son abiertos, por la continuidad de $f$. Además, el hecho que $f$ es sobreyectiva implica que ninguno es vacío y que su unión es $X$.  
+\end{proof}
+
+\textbf{Corolario. } Un espacio $X$ es conexo si y solo si toda función continua $f:X \rightarrow \{0, 1\}$ es constante.   
+
+\begin{mybox}
+\textbf{Problema 8. } Sean $A, B$ subespacios conexos de un espacio topológico $X$. Si $A \cap \overline{B} \neq \varnothing$, entonces $A \cup B$ también es conexo. 
+\end{mybox}	
+\begin{proof}
+	Consideramos dos casos. \\
+	
+	$\textit{Caso I.}$ $A \cap B \neq \varnothing$. Se sigue que $A \cup B$ es conexo. \\
+	
+	$\textit{Caso II.}$ $A \cap B = \varnothing$. Entonces, $A$ debe contener un punto límite de $B$; llamémoslo $x$. Entonces $B \cup \{x\}$ es conexo, de lo que se sigue que $A \cup B = A \cup \{ x \} \cup B$ es conexo. 	
+\end{proof}
+
+\begin{proof}
+	Supongamos que $f: A \cup B \rightarrow \{ 0, 1\}$ es continua y $\{0, 1\}$ tiene la topología discreta. Queremos mostrar que $f$ es constante. Notamos que $\restr{f}{A}$ y $\restr{f}{B}$ son continuas. Puesto que $A$ y $B$ son conexos, se sigue que las restricciones son, además, constantes. Supongamos que para todo $x \in A$, $\restr{f}{A}(x) = a$ y para todo $x \in B$, $\restr{f}{b}(x) = b$, donde $a$ y $b$ están en $\{0, 1\}$. Si tomamos $x$ en $A \cap \overline{B}$, se sigue que $f(x) = a$ y $f(x) = b$, esto último porque
+	$$ f(\overline{B}) \subseteq \overline{f(B)} = \{ b \}.$$
+	Esto solo se puede cumplir si $a = b$, de lo que concluimos que $f$ es constante. Así, $A \cup B$ debe ser conexo. 
+\end{proof}
+
+\begin{mybox}
+	\textbf{Problema 9. } ¿La conexión de $A \cup B$, $A \cap B$ implica la conexión de $A$ y de $B$?
+\end{mybox}	
+
+En general, no. Consideremos $A = (0,1) \cup (2, 3 )$, $B = [1, 4)$ como subespacios de $\mathbb{R}$ con la topología usual. Entonces $A \cup B = (0, 4)$ y $A \cap B = (2, 3)$ son espacios conexos, pero $A$ no lo es. \\
+Si añadimos la suposición que $A$ y $B$ son cerrados, sí se sigue que ambos son conexos. Ofrecemos dos demostraciones de este hecho. 
+\begin{proof}
+	Demostramos que $A$ es conexo. Sea $f: A \rightarrow \{0,1 \}$ continua. Puesto que $A \cap B$ es conexo y está en $A$, se sigue que la restricción $\restr{f}{A \cap B}$ es constante. Supongamos que $$\left(\restr{f}{A \cap B}\right)(x) = a \in \{ 0,1 \}$$
+	para todo $x \in A \cap B$. Nos proponemos demostrar que $f(A) = \{ a \}$, de lo que se puede deducir que $A$ es conexo. Con tal fin, construimos una función $g: A \cup B \rightarrow \{0,1\}$ dada por
+	\begin{equation*}
+	g(x) =
+	\begin{cases}
+	f(x) \hspace{0.2cm} \text{ si } x \in A, \\ 
+	a  \hspace{0.7cm} \text{ si } x \in B.
+	\end{cases}
+	\end{equation*}
+Notamos que $g$ está bien definida. Por el lema del pegado, esta función es continua. Usando el hecho que $A \cup B$ es conexo, podemos deducir que es constante. Es decir, $g(x) = a$ para todo $x \in A$. En particular, dado que $\restr{g}{A} = f$, se deduce que $f$ es constante en todo $A$. Concluimos que $A$ es conexo. \\
+El mismo argumento, \textit{mutatis mutandis}, muestra que $B$ es conexo. 
+
+\end{proof}
+
+\begin{proof}
+	Procedemos por contradicción. Supongamos que $A = C \cup D$ es una separación de $A$. Puesto que $A \cap B$ es conexo y está contenido en $A$, se sigue que debe estar, o bien en $C$, o bien en $D$. Supongamos, sin pérdida de generalidad, que $A \cap B \subseteq C$. Entonces, notamos que $B$ no puede intersecar a $D$. Consideremos
+	$$ A \cup B = ( C \cup B ) \cup D. $$
+	Notamos que $C\cup B$ es cerrado en $A \cup B$. Además, $D$ también es cerrado en $A \cup B$. Estos conjuntos son disjuntos y no vacíos, de modo que constituyen una separación de $A \cup B$, contradiciendo el hecho que este conjunto es conexo. Por tanto, $A$ debe ser conexo. \\
+	
+	Un argumento análogo se puede usar para mostrar que $B$ debe ser conexo. 
+\end{proof}
+
+\begin{mybox}
+	\textbf{Problema 10. } Sea $M$ un subespacio conexo de un espacio $X$ y $A \subseteq X$ clopen. Demostrar que, o bien $M \subseteq A$, o $M \subseteq X \backslash A$. 
+\end{mybox}	
+\begin{proof}
+	Si $A = \varnothing$ o $A = X$, la proposición se cumple. Si $A \subsetneq X$ es no vacío, entonces $A$ y $X \backslash A$ forman una separación de $X$. Al ser conexo, $M$ debe estar, o bien contenido en $A$, o bien contenido en $X \backslash A$.  
+\end{proof}
+
+\begin{mybox}
+	\textbf{Problema 11. } Consideremos $A, B \subseteq X$, donde $A$ es conexo y $B$ clopen. Si $A \cup B \neq \varnothing$, entonces $A \subseteq B$.
+\end{mybox}	
+\begin{proof}
+	Se sigue que $A \cap B$ es clopen en $A$. Puesto que $A$ es conexo y $A \cap B \neq \varnothing$, se sigue que $A \cap B = A$, de modo que $A \subseteq B$.
+\end{proof}
+
+\end{document}
+
+

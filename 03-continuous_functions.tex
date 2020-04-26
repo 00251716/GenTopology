@@ -248,7 +248,7 @@ Supongamos que existen dos funciones continuas $g_{1}, g_{2}: \bar{A} \rightarro
 
 \textbf{Una demostración fallida. } Al ver el problema anterior, una idea que puede surgir es usar la diagonal $\Delta$ de $Y$. Definamos $h: X \rightarrow Y \times Y$ como 
 $$ h(x) = ( f(x), g(x) ). $$
-Puesto que ambas funciones coordenadas son continuas, se sigue que $h$ es continua. Del hecho que $Y$ es Hausdorff, podemos deducir que la digonal $\Delta$ es cerrada en $Y$. Si se cumple que
+Puesto que ambas funciones coordenadas son continuas, se sigue que $h$ es continua. Del hecho que $Y$ es Hausdorff, podemos deducir que la digonal $\Delta$ es cerrada en $Y \times Y$. Si se cumple que
 $$ h^{-1}(\Delta) = W $$
 habremos demostrado que $W$ es cerrado. La demostración que $W \subseteq h^{-1}(\Delta)$ no presenta problemas: todos los puntos de $W$ son enviados por $h$ a la diagonal $\Delta$. 
 Sin embargo, cuando queremos demostrar que $h^{-1}(\Delta) \subseteq W$, nos encontramos con el problema que $f$ y $g$ pueden no ser sobreyectivas: puede existir $y \in Y$ al que no llega ni $f$ ni $g$, de forma que $(y, y)$ estaría en $\Delta$ pero no en $h(W)$.\\
@@ -283,10 +283,41 @@ Lo anterior se puede reformular como que una función continua que toma valores 
 \end{proof}
 
 \begin{mybox}
-	\textbf{14. }Sea $X$ un espacio topológico y $A \subseteq X$. Si $U$ es un abierto tal que $U \cap A = \varnothing$, entonces $U \cap \bar{A} = \varnothing$.
+	\textbf{14. } Sea $X$ un espacio topológico  y $A$ un subconjunto de $X$. La función característica de $A$, $\chi_{A} : X \rightarrow \mathbb{R}$ se define  como
+	\begin{equation*}
+	\chi_{A}(x) = 
+	\begin{cases}
+	1 \hspace{0.2cm} \text{si }\hspace{0.2cm} x \in A ,\\
+	0 \hspace{0.2cm}\text{ si} \hspace{0.2cm} x \in X \backslash A.
+	\end{cases}
+	\end{equation*}
+	La función $\chi_{A}$ es continua si y solo si $A$ es clopen. 
 \end{mybox}	
 \begin{proof}
-	Notamos que el conjunto $X \backslash U$ es cerrado y que $A \subseteq X \backslash U$, de lo que se sigue que $\bar{A} \subseteq X \backslash U$ y que $ \bar{A} \cap U = \varnothing$. 
+		$(\Rightarrow)$ Supongamos que $\chi_{A}$ es continua. Entonces, los conjuntos 
+		$$ \chi_{A}^{-1}(\{ 1 \}) = A $$
+	   $$ \chi_{A}^{-1}(\{ 0 \}) = X \backslash A $$
+son cerrados en $X$, de lo que deducimos que $A$ es clopen en $X$. \\
+
+$(\Leftarrow)$ Supongaos que $A$ es clopen en $X$. Demostramos que $\chi_{A}: A \rightarrow \{ 0, 1\}$ es continua, donde $\{0, 1\}$ está equipado con la topología discreta.  Entonces, 
+$$ \chi_{A}^{-1}(\{ 1 \}) = A$$
+$$ \chi_{A}^{-1}(\{ 0 \}) = X \backslash A$$
+$$ \chi_{A}^{-1}(\{ 0, 1 \}) =  X$$
+$$ \chi_{A}^{-1}(\varnothing) = \varnothing.$$
+Así, $\chi_{A}$  trae conjuntos abiertos a conjuntos abiertos, de lo que deducimos que es continua. Puesto que $\chi_{A}(X) = \{ 0, 1\}$ y $\{0,1\}$ con la topología discreta es un subespacio de $\mathbb{R}$ con la topología usual, concluimos que $\chi_{A}$ es continua como función de $X$ a $\mathbb{R}$.   
+\end{proof}
+
+\begin{mybox}
+	\textbf{15. } Sea $X$ un espacio topológico y $A$ un subconjunto de $X$. La función característica de $A$, $\chi_{A}$, es continua en $x \in X$ si y solo si $x \notin \partial A$. 
+\end{mybox}
+
+\begin{mybox}
+	\textbf{16. } Un espacio $X$ es discreto si y solo si toda función $f:X \rightarrow Y$ es continua, para cualquier espacio $Y$.
+\end{mybox}	
+
+\begin{proof}
+	$(\Leftarrow)$ En particular, la función identidad de $X$ a $X$ con la topología discreta es continua, de lo que deducimos que $i^{-1}(\{x \}) + \{x \}$ es abierto en $X$ para cualquier $x \in X$. Se sigue que $X$ debe ser discreto. \\
+	$(\Rightarrow)$ Ahora supongamos que $X$ es discreto y sea $f:X \rightarrow Y$ arbitraria, donde $Y$ es un espacio topológico. Si tomamos un abierto $U$ de $Y$, $f^{-1}(U)$ es un subconjunto de $X$, de lo que se sigue que $f^{-1}(U)$ es abierto en $X$ para cualquier $U$ abierto en $Y$. Por tanto, $f$ es continua. 2
 \end{proof}
 
 \end{document}
